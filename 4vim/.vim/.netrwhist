@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/di/Desktop/tmp'
+let g:netrw_dirhist_2='/Users/di/Desktop/ele_git/minos/minos-impl'
+let g:netrw_dirhist_3='/usr/apache-maven-3.1.1'
+let g:netrw_dirhist_4='/Users/di/Desktop/ele_project_docs/anubis/bod_thrift/gen-py'
+let g:netrw_dirhist_5='/Users/di/Desktop/ele_project_docs/anubis/bod_thrift/gen-py/dss'
+let g:netrw_dirhist_6='/Users/di/Desktop/ele_git/sargeras/sargeras-dist/sargeras-webapis/sargeras-base-svr/target/sargeras-svr'
