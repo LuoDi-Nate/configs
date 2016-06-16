@@ -7,6 +7,7 @@ export ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="powerlevel9k"
 #ZSH_THEME="agnoster"
+#ZSH_THEME="Bullet train"
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -257,33 +258,30 @@ alias desk="cd ~/Desktop"
 # #. ~/dev/project/shell/powerline/powerline/bindings/zsh/powerline.zsh# bindkey "^x^e" edit-command-line
 # bindkey 
 #
-PATH=$PATH:/usr/java/jdk1.8.0_40/bin
-export PATH
-JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home
-export JAVA_HOME
-
-MAVEN_HOME=/usr/apache-maven-3.1.1
-PATH=$PATH:$MAVEN_HOME/bin
-export MAVEN_HOME
-export PATH
-DEFAULT_USER='diwa'
 
 
-M2_HOME=$MAVEN_HOME                                                                                                                                                                
-export M2_HOME
-PATH=$PATH:/usr/local/mysql/bin
-export PATH
+
 
 alias redisserver='/usr/local/bin/redis-server'
 alias redisclient='/usr/local/bin/redis-cli'
 alias o=open
 
-PATH=$PATH:/usr/MacVim-snapshot-76/
-export PATH
-source  powerlevel9k/powerlevel9k.zsh-theme
 alias speak='fortune|cowsay'
 
-PATH=$PATH:/usr/local/sbin
+JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home
+PATH=$PATH:$JAVA_HOME/bin
+
+M2_HOME=/Users/di/Desktop/tools/apache-maven-3.2.5
+MAVEN_HOME=/Users/di/Desktop/tools/apache-maven-3.2.5
+PATH=$PATH:$MAVEN_HOME/bin
+
+
 export PATH
-PATH=$PATH:/Users/di/Desktop/tools/node/node_modules/cordova/bin
-export PATH
+export JAVA_HOME
+export MAVEN_HOME
+export M2_HOME
+
+source  ~/powerlevel9k/powerlevel9k.zsh-theme 
+
+alias java7="source ~/java7.sh"
+alias java8="source ~/java8.sh"
