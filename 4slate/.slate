@@ -1,0 +1,149 @@
+# quakex 的 slate 配置文件  
+
+# Global Configs 全局配置  
+config defaultToCurrentScreen true
+# show icons & letters on all windows w/ Window Hints
+config windowHintsShowIcons true
+config windowHintsIgnoreHiddenWindows false
+config windowHintsSpread true
+
+# Show a positioning grid for each monitor
+# bind g:cmd grid padding:5 0:2,1 1:2,2     #将第一个窗口分成2份，第二分成4份
+
+# Monitor Aliases
+alias mon-right 1                # 外接右边边的显示器
+alias mon-macbook 0             # 笔记本屏幕
+alias mon-left 2                # 外接右边边的显示器
+
+# General aliases
+alias hyper cmd;ctrl            # 组合键
+alias sox screenOriginX 
+alias soy screenOriginY
+alias ssx screenSizeX
+alias ssy screenSizeY
+alert(sox)
+# Abstract positions  相对位置  
+alias centered           ${sox}+${ssx}/8;${soy}+${ssy}/8 ${ssx}/8*6;${ssy}/8*6
+alias fullscreen         ${sox};${soy} ${ssx};${ssy}
+alias leftHalf           ${sox};${soy} ${ssx}/2;${ssy}
+alias bottomHalf         ${sox};${soy}+${ssy}/2 ${ssx};${ssy}/2
+alias topHalf            ${sox};${soy} ${ssx};${ssy}/2
+alias rightHalf          ${sox}+${ssx}/2;${soy} ${ssx}/2;${ssy}
+alias topLeftQuarter     ${sox};${soy} ${ssx}/2;${ssy}/2
+alias topRightQuarter    ${sox}+${ssx}/2;${soy} ${ssx}/2;${ssy}/2
+alias bottomLeftQuarter  ${sox};${soy}+${ssy}/2 ${ssx}/2;${ssy}/2
+alias bottomRightQuarter ${sox}+${ssx}/2;${soy}+${ssy}/2 ${ssx}/2;${ssy}/2
+alias topThird           ${sox};${soy} ${ssx};${ssy}/3
+alias leftThird          ${sox};${soy} ${ssx}/3;${ssy}
+alias bottomThird        ${sox};${soy}+${ssy}/3 ${ssx};${ssy}/3
+alias rightThird         ${sox}+${ssx}/3*2;${soy} ${ssx}/3;${ssy}
+
+# Concrete positions  具体位置  
+alias 1-full        move ${sox};${soy} ${ssx};${ssy}                ${mon-macbook}
+alias 1-left        move ${sox};${soy} ${ssx}/2;${ssy}              ${mon-macbook}
+alias 1-right       move ${sox}+${ssx}/2;${soy} ${ssx}/2;${ssy}     ${mon-macbook}
+alias 1-rightThird  move ${sox}+${ssx}/3*2;${soy} ${ssx}/3;${ssy}   ${mon-macbook}
+alias 2-left        move ${sox};${soy} ${ssx}/2;${ssy}              ${mon-right}
+alias 2-full        move ${sox};${soy} ${ssx};${ssy}                ${mon-right}
+alias 2-right       move ${sox}+${ssx}/2;${soy} ${ssx}/2;${ssy}     ${mon-right}
+alias 2-righttop    move ${sox}+${ssx}/2;${soy} ${ssx}/2;${ssy}/2   ${mon-right}
+alias 2-rightbottom move ${sox}+${ssx}/2;${soy}+${ssy}/2 ${ssx}/2;${ssy}/2       ${mon-right}
+alias 2-rightThird  move ${sox}+${ssx}/3*2;${soy} ${ssx}/3;${ssy}   ${mon-right}
+
+# 2 Monitor layout  两个显示器时的 layout
+layout 2monitors 'iTerm':REPEAT              ${2-rightbottom} | ${2-righttop} | ${2-left}
+#layout 2monitors 'iTerm':REPEAT             ${2-left}
+#layout 2monitors 'iTerm':REPEAT             ${2-righttop} | ${1-left}
+layout 2monitors 'Google Chrome':REPEAT     ${1-full}
+layout 2monitors 'QQ':REPEAT                ${1-full}
+#layout 2monitors 'MacVim':REPEAT            ${2-left} | ${2-right}
+#layout 2monitors 'Mail':REPEAT              ${2-left}
+#layout 2monitors 'Finder':REPEAT            ${2-righttop}
+#layout 2monitors 'Xcode':REPEAT             ${1-full}
+#layout 2monitors 'iTunes':REPEAT            ${1-full}
+#layout 2monitors 'Skim':REPEAT              ${2-right}
+#layout 2monitors 'nvALT':REPEAT             ${2-rightThird}
+
+# 1 Monitor layout 一个显示器时的布局  
+layout 1monitor 'iTerm':REPEAT              ${1-right}
+layout 1monitor 'Sublime Text':REPEAT       ${1-left}
+layout 1monitor 'MacVim':REPEAT             ${1-left} | ${1-right}
+layout 1monitor 'Safari':REPEAT             ${1-full}
+layout 1monitor 'Mail':REPEAT               ${1-full}
+layout 1monitor 'Finder':REPEAT             ${1-full}
+layout 1monitor 'Xcode':REPEAT              ${1-full}
+layout 1monitor 'iTunes':REPEAT             ${1-full}
+layout 1monitor 'Skim':REPEAT               ${1-full}
+layout 1monitors 'nvALT':REPEAT             ${1-rightThird}
+
+# Default Layouts
+default 2monitors resolutions:1680x1050;2560x1600
+default 1monitor  resolutions:2560x1600
+
+bind 1:${hyper} layout 1monitor
+bind 2:${hyper} layout 2monitors
+
+# Bindings 模拟 Vim 控制窗口位置  
+bind g:${hyper} move ${centered}            #ctrl+cmd+g 将窗口居中
+bind o:${hyper} move ${fullscreen}          #ctrl+cmd+o 全屏  
+bind h:${hyper} move ${leftHalf}
+bind j:${hyper} move ${bottomHalf}
+bind k:${hyper} move ${topHalf}
+bind l:${hyper} move ${rightHalf}
+bind u:${hyper} move ${topLeftQuarter}
+bind i:${hyper} move ${topRightQuarter}
+bind n:${hyper} move ${bottomLeftQuarter}
+bind m:${hyper} move ${bottomRightQuarter}
+bind y:${hyper} move ${leftThird}
+bind p:${hyper} move ${rightThird}
+
+# Resize Bindings
+bind right:alt;ctrl       resize +10% +0
+bind left:alt;ctrl        resize -10% +0
+bind up:alt;ctrl          resize +0   -10%
+bind down:alt;ctrl        resize +0   +10%
+
+# Nudge Bindings
+# bind right:shift;alt        nudge +10% +0
+# bind left:shift;alt         nudge -10% +0
+# bind up:shift;alt           nudge +0   -10%
+# bind down:shift;alt         nudge +0   +10%
+
+# Throw Bindings
+bind [:${hyper} throw 0 resize:${ssx};${ssy}  
+bind ]:${hyper} throw 1 resize:${ssx};${ssy}  
+
+# Window Hints
+bind esc:cmd hint ASDFGQWERTZXCVBN
+
+# relaunch .slate 
+bind r:${hyper} relaunch
+
+# Focus Bindings
+bind right:${hyper}    focus right
+bind left:${hyper}     focus left
+bind up:${hyper}       focus up
+bind down:${hyper}     focus down
+
+# undo 
+bind z:${hyper} undo
+
+# App bindings
+alias hyperApp alt
+bind g:${hyperApp} focus 'Google Chrome'
+bind s:${hyperApp} focus 'Sublime Text'
+bind q:${hyperApp} focus 'QQ'
+bind w:${hyperApp} focus 'WeChat'
+bind i:${hyperApp} focus 'iTerm'
+bind f:${hyperApp} focus 'Finder'
+
+
+#App toggle
+bind h:${hyperApp} toggle current
+
+#App Focus
+#bind h:ctrl focus left
+#bind l:ctrl focus right
+#bind k:ctrl focus up
+#bind j:ctrl focus down
+
