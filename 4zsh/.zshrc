@@ -10,6 +10,18 @@ export ZSH=$HOME/.oh-my-zsh
 #ZSH_THEME="Bullet train"
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
+POWERLEVEL9K_MODE='awesome-patched'
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history time)
+
+POWERLEVEL9K_OS_ICON_BACKGROUND="white"
+POWERLEVEL9K_OS_ICON_FOREGROUND="blue"
+POWERLEVEL9K_DIR_HOME_FOREGROUND="white"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="white"
+POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="white"
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -57,7 +69,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
- export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -91,14 +103,14 @@ alias desk="cd ~/Desktop"
 # #ZSH_THEME="powerline"
 # ZSH_THEME="robbyrussell"
 # # Example aliases
- alias zshconfig="mate ~/.zshrc"
- alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zshconfig="mate ~/.zshrc"
+alias ohmyzsh="mate ~/.oh-my-zsh"
 # # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 # # Comment this out to disable weekly auto-update checks
 # # DISABLE_AUTO_UPDATE="true"
 # # Uncomment following line if you want to disable colors in ls
-  DISABLE_LS_COLORS="true"
+DISABLE_LS_COLORS="true"
 # # Uncomment following line if you want to disable autosetting terminal title.
  DISABLE_AUTO_TITLE="true"
 # # Uncomment following line if you want red dots to be displayed while waiting for completion
@@ -285,3 +297,5 @@ source  ~/powerlevel9k/powerlevel9k.zsh-theme
 
 alias java7="source ~/java7.sh"
 alias java8="source ~/java8.sh"
+export JUMPER_HOME=/Users/di/Desktop/dp_git/jumper
+alias jump="/Users/di/Desktop/dp_git/jumper/jump.sh"
